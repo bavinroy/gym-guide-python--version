@@ -1,0 +1,1542 @@
+from kivy.lang import Builder
+from kivymd.app import MDApp
+from kivymd.uix.screenmanager import ScreenManager
+from kivymd.uix.screen import Screen
+
+# Define custom screens
+class MainScreen(Screen):
+    pass
+
+class WorkoutScheduleScreen(Screen):
+    pass
+
+class ChestTricepsScreen(Screen):
+    pass
+
+class BackBicepsScreen(Screen):
+    pass
+
+class LegShoulderScreen(Screen):
+    pass
+
+class PreWorkoutScreen(Screen):
+    pass
+
+class PainReliefScreen(Screen):
+    pass
+
+class OtherScreen(Screen):
+    pass
+
+KV = '''
+ScreenManager:
+    MainScreen:
+    WorkoutScheduleScreen:
+    PreWorkoutScreen:
+    PainReliefScreen:
+    OtherScreen:
+    ChestTricepsScreen:
+    BackBicepsScreen:
+    LegShoulderScreen:
+
+<MainScreen>:
+    name: "main"
+
+    MDLabel:
+        text: "SCT GYM GUIDE"
+        font_style: "H4"
+        halign: "center"
+        bold: True
+        pos_hint: {"center_y": 0.9}
+        theme_text_color: "Custom"
+        text_color: 1, 0, 0, 1
+
+
+    MDSeparator:
+        height: "2dp"
+        pos_hint: {"center_y": 0.87}
+
+    MDRaisedButton:
+        text: "DAILY WORKOUT SCHEDULE "
+        font_size: "20sp"
+        size_hint_x: 0.85
+        size_hint_y: None
+        height: "50dp"
+        pos_hint: {"center_x": 0.5, "center_y": 0.7}
+        md_bg_color: 1, 0, 0, 1
+        on_release: app.switch_screen("schedule")
+
+    MDRaisedButton:
+        text: "PRE-WORKOUT STRETCHES "
+        font_size: "20sp"
+        size_hint_x: 0.85
+        size_hint_y: None
+        height: "50dp"
+        pos_hint: {"center_x": 0.5, "center_y": 0.6}
+        md_bg_color: 1, 0, 0, 1
+        on_release: app.switch_screen("pre_workout")
+
+    MDRaisedButton:
+        text: "PAIN RELEIF STRETCHES "
+        font_size: "20sp"
+        size_hint_x: 0.85
+        size_hint_y: None
+        height: "50dp"
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        md_bg_color: 1, 0, 0, 1
+        on_release: app.switch_screen("pain_relief")
+
+
+    MDRaisedButton:
+        text: "OTHERS "
+        font_size: "20sp"
+        size_hint_x: 0.85
+        size_hint_y: None
+        height: "50dp"
+        pos_hint: {"center_x": 0.5, "center_y": 0.4}
+        md_bg_color: 1, 0, 0, 1
+        on_release: app.switch_screen("others")
+
+    MDLabel:
+        text: "powered by @ tech hunters"
+        font_style: "Caption"
+        halign: "center"
+        pos_hint: {"center_y": 0.05}
+
+<WorkoutScheduleScreen>:
+    name: "schedule"
+
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint: {"x": 0, "top": 1}
+        on_release: app.switch_screen("main")
+
+    
+
+    MDLabel:
+        text: "DAILY WORKOUT SCHEDULE"
+        font_style: "H5"
+        halign: "center"
+        size_hint_y:None
+        height:"50dp"
+        bold: True
+        pos_hint: {"center_y": 0.9}
+        theme_text_color: "Custom"
+        text_color: 1, 0, 0, 1
+
+    MDGridLayout:
+        cols: 2
+        size_hint_x: 0.9
+        size_hint_y: None
+        height: "400dp"
+        pos_hint: {"center_x": 0.5, "center_y": 0.55}
+        spacing: 15
+
+        MDLabel:
+            text: "DAYS"
+            font_style: "H6"
+            bold: True
+            halign: "center"
+
+        MDLabel:
+            text: "WORKOUTS"
+            font_style: "H6"
+            bold: True
+            halign: "center"
+
+        MDRaisedButton:
+            text: "MONDAY"
+            font_size: "18sp"
+            size_hint_x: 0.45
+            size_hint_y: None
+            height: "50dp"
+            md_bg_color: 1, 0, 0, 1
+
+        MDRaisedButton:
+            text: "CHEST + TRICEPS"
+            font_size: "18sp"
+            size_hint_x: 0.45
+            size_hint_y: None
+            height: "50dp"
+            md_bg_color: 1, 0, 0, 1
+            on_release: app.switch_screen("chest_triceps")
+
+        MDRaisedButton:
+            text: "TUESDAY"
+            font_size: "18sp"
+            size_hint_x: 0.45
+            size_hint_y: None
+            height: "50dp"
+            md_bg_color: 1, 0, 0, 1
+
+        MDRaisedButton:
+            text: "BACK + BICEPS"
+            font_size: "18sp"
+            size_hint_x: 0.45
+            size_hint_y: None
+            height: "50dp"
+            md_bg_color: 1, 0, 0, 1
+            on_release: app.switch_screen("back_biceps")
+
+        MDRaisedButton:
+            text: "WEDNESDAY"
+            font_size: "18sp"
+            size_hint_x: 0.45
+            size_hint_y: None
+            height: "50dp"
+            md_bg_color: 1, 0, 0, 1
+
+        MDRaisedButton:
+            text: "LEG + SHOULDER"
+            font_size: "18sp"
+            size_hint_x: 0.45
+            size_hint_y: None
+            height: "50dp"
+            md_bg_color: 1, 0, 0, 1
+            on_release: app.switch_screen("leg_shoulder")
+
+        MDRaisedButton:
+            text: "THURSDAY"
+            font_size: "18sp"
+            size_hint_x: 0.45
+            size_hint_y: None
+            height: "50dp"
+            md_bg_color: 1, 0, 0, 1
+
+        MDRaisedButton:
+            text: "CHEST + TRICEPS"
+            font_size: "18sp"
+            size_hint_x: 0.45
+            size_hint_y: None
+            height: "50dp"
+            md_bg_color: 1, 0, 0, 1
+            on_release: app.switch_screen("chest_triceps")
+
+
+        MDRaisedButton:
+            text: "FRIDAY"
+            font_size: "18sp"
+            size_hint_x: 0.45
+            size_hint_y: None
+            height: "50dp"
+            md_bg_color: 1, 0, 0, 1
+
+        MDRaisedButton:
+            text: "BACK + BICEPS"
+            font_size: "18sp"
+            size_hint_x: 0.45
+            size_hint_y: None
+            height: "50dp"
+            md_bg_color: 1, 0, 0, 1
+            on_release: app.switch_screen("back_biceps")
+
+
+        MDRaisedButton:
+            text: "SATURDAY"
+            font_size: "18sp"
+            size_hint_x: 0.45
+            size_hint_y: None
+            height: "50dp"
+            md_bg_color: 1, 0, 0, 1
+
+        MDRaisedButton:
+            text: "LEG + SHOULDER"
+            font_size: "18sp"
+            size_hint_x: 0.45
+            size_hint_y: None
+            height: "50dp"
+            md_bg_color: 1, 0, 0, 1
+            on_release: app.switch_screen("leg_shoulder")
+
+
+    MDLabel:
+        text: "SUNDAY SHOULD TAKE REST"
+        font_style: "Subtitle1"
+        halign: "center"
+        bold:True
+        pos_hint: {"center_y": 0.15}
+
+<ChestTricepsScreen>:
+    name: "chest_triceps"
+
+
+
+    MDScrollView:
+        MDBoxLayout:
+            orientation: "vertical"
+            size_hint_y: None
+            height: self.minimum_height
+            padding: 20
+            spacing: 20
+
+            MDLabel:
+                text: "CHEST"
+                font_style: "H5"
+                halign: "center"
+                bold: True
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Image 2025-02-01 at 11.59.31 AM.jpeg"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "BUTTERFLY 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp_Image_2025-01-31_at_9.53.13_PM-removebg-preview-removebg-preview.png"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "BARBELL PRESS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Image 2025-01-31 at 9.53.26 PM.jpeg"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "INCLINE BENCH PRESS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            
+            Image:
+                source: r"c:\\Users\\HP\\Downloads\\arm-bicep-strong-hand-holding-a-dumbbell-icon-cartoon-hand-drawn-vector-illustration-sketch-T7C3H9.jpg"
+                size_hint_y: None
+                height: "350dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "CLOSE GRIP BENCH PRESS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Video 2025-01-31 at 9.53.12 PM.gif"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "BARBELL BENCH PRESS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                padding: 20
+                spacing: 20
+            
+           
+            MDLabel:
+                text: "TRICEPS"
+                font_style: "H5"
+                halign: "center"
+                bold: True
+
+            
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp_Image_2025-01-31_at_9.53.20_PM-removebg-preview.png"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "OVER HEAD TRICEP EXTENSION 3 X 10"
+                font_style: "H6"
+                halign: "center"
+            
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp_Image_2025-01-31_at_9.53.21_PM-removebg-preview.png"
+                size_hint_y: None
+                height: "150dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "DIAMOND PUSHUPS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+            
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Image 2025-01-31 at 9.53.22 PM.jpeg"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "CLOSE GRIP BENCH PRESS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+            
+            
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Image 2025-01-31 at 9.53.25 PM.jpeg"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "CABLE TRICEP PUSHDOWN 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp_Image_2025-01-31_at_9.53.23_PM-removebg-preview.png"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "TRICEP DIPS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint: {"x": 0, "top": 1}
+        on_release: app.switch_screen("schedule")
+
+<BackBicepsScreen>:
+    name: "back_biceps"
+
+    MDScrollView:
+        MDBoxLayout:
+            orientation:"vertical"
+            size_hint_y: None
+            height: self.minimum_height
+            padding: 20
+            spacing: 20
+
+            MDLabel:
+                text: "BACK"
+                font_style: "H5"
+                halign: "center"
+                bold: True
+ 
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp_Image_2025-01-31_at_9.53.31_PM-removebg-preview.png"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "BENT OVER ROW 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Video 2025-01-31 at 9.53.29 PM (1).gif"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "CLOSE GRIP PULLS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            
+            Image:
+                source: r"c:\\Users\\HP\\Downloads\\WhatsApp Video 2025-02-05 at 2.30.08 PM.gif"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "T - BAR ROW WITH HANDLE 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            Image:
+                source: r"c:\\Users\\HP\\Downloads\\WhatsApp Video 2025-02-05 at 2.31.57 PM.gif"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "BARBELL ROWS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Video 2025-01-31 at 9.53.29 PM.gif"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "LATERAL PULLDOWN 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                padding: 20
+                spacing: 20
+
+            MDLabel:
+                text: "BICEPS"
+                font_style: "H5"
+                halign: "center"
+                bold: True
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp_Image_2025-01-31_at_9.53.09_PM-removebg-preview.png"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "BICEP CURLS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Image 2025-01-31 at 9.53.09 PM.jpeg"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "HAMMER CURLS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+            
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp_Image_2025-01-31_at_9.53.08_PM-removebg-preview.png"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "EZ - BAR CURLS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Image 2025-01-31 at 9.53.10 PM.jpeg"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "CABLE CURLS 3 X 10"
+                font_style: "H5"
+                halign: "center"
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Video 2025-02-06 at 6.24.09 PM.gif"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True 
+
+            MDLabel:
+                text: "DUMBELL CURLS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+
+            
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint: {"x": 0, "top": 1}
+        on_release: app.switch_screen("schedule")
+
+<LegShoulderScreen>:
+    name: "leg_shoulder"
+    MDScrollView:
+        MDBoxLayout:
+            orientation:"vertical"
+            size_hint_y: None
+            height: self.minimum_height
+            padding: 20
+            spacing: 20
+
+            MDLabel:
+                text: "LEG"
+                font_style: "H5"
+                halign: "center"
+                bold: True
+ 
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Image 2025-01-31 at 9.54.31 PM.jpeg"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "SPILT SQUAT 3 X 10"
+                font_style: "H6"
+                halign: "center"
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Image 2025-01-31 at 9.53.15 PM.jpeg"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "LEG EXTENSION 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Image 2025-01-31 at 9.54.30 PM.jpeg"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "LEG CURLS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            Image:
+                source: r"c:\\Users\\HP\\Downloads\\WhatsApp Image 2025-01-31 at 9.54.30 PM.jpeg"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "BACK SQUAT"
+                font_style: "H6"
+                halign: "center"
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Video 2025-01-31 at 9.54.31 PM.gif"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "LEG PRESS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                padding: 20
+                spacing: 20
+
+            
+
+            MDLabel:
+                text: "SHOULDER"
+                font_style: "H5"
+                halign: "center"
+                bold: True
+
+            Image:
+                source: r"c:\\Users\\HP\\Downloads\\WhatsApp Image 2025-02-05 at 2.59.59 PM.jpeg"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "BAR BELL SHOLDER PRESS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            Image:
+                source: r"c:\\Users\\HP\\Downloads\\WhatsApp Video 2025-02-05 at 2.40.39 PM.gif"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "DUMBELL SHOULDER PRESS 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Video 2025-02-04 at 2.29.32 PM.gif"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "LATERAL RAISE 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+            Image:
+                source: r"c:\\Users\\HP\\Downloads\\WhatsApp Video 2025-02-05 at 2.33.17 PM.gif"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "FRONT RAISE 3 X10"
+                font_style: "H6"
+                halign: "center"
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp_Image_2025-01-31_at_9.53.19_PM-removebg-preview.png"
+                size_hint_y: None
+                height: "200dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "DUMBELL SHRUG 3 X 10"
+                font_style: "H6"
+                halign: "center"
+
+
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint: {"x": 0, "top": 1}
+        on_release: app.switch_screen("schedule")
+
+<PreWorkoutScreen>:
+    name: "pre_workout"
+
+
+
+    MDScrollView:
+        MDBoxLayout:
+            orientation: "vertical"
+            size_hint_y: None
+            height: self.minimum_height
+            padding: 20
+            spacing: 10
+
+            MDLabel:
+                text: "PRE -WORKOUT STRETCHES"
+                font_style: "H5"
+                bold: True
+                halign: "center"
+                size_hint_y: None
+                height: "50dp"
+                md_bg_color: 1, 0, 0, 1
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                
+
+            MDLabel:
+                text: "WARM-UP (3-5 MINUTES)"
+                font_style: "H5"
+                bold: True
+                halign: "center"
+                size_hint_y: None
+                height: "50dp"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "1. LIGHT CARDIO SUCH AS JOGGING, JUMPING JACKS, OR CYCLING."
+                font_style: "H6"
+                halign: "center"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+
+            MDLabel:
+                text: "2. DYNAMIC STRETCHING, SUCH AS ARM CIRCLES AND LEG SWINGS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True
+
+            MDLabel:
+                text: "UPPER BODY STRETCHES (3-5 MINUTES)"
+                font_style: "H5"
+                bold: True
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "1. NECK STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "SLOWLY TILT YOUR HEAD TO THE SIDE, BRINGING YOUR EAR TOWARDS YOUR SHOULDER. HOLD FOR 30 SECONDS AND REPEAT ON THE OTHER SIDE."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Video 2025-02-08 at 10.41.42 AM.gif"
+                size_hint_y: None
+                height: "400dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "2. SHOULER ROLLS:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "ROLL YOUR SHOULDERS FORWARD AND BACKWARD IN A MOTION. REPEAT FOR 30 SECONDS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Video 2025-02-08 at 10.45.30 AM.gif"
+                size_hint_y: None
+                height: "400dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "3. CHEST STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "STAND AND RAISE BOTH HANDS. LEAN FORWARD UNTIL YOU FEEL A STRETCH IN YOUR CHEST.HOLD FOR 30 SECONDS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Video 2025-02-07 at 9.53.05 PM.gif"
+                size_hint_y: None
+                height: "400dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "4. TRICEP STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "HOLD ONE ARM STRAIGHT OUT BEHIND YOU AND USE OTHER ARM TO PULL YOUR HAND YOUR SHOULDER BLADE. HOLD FOR 30 SECONDS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Video 2025-02-07 at 9.53.04 PM.gif"
+                size_hint_y: None
+                height: "400dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "5.BICEP STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "BICEP STRETCH: BEING BY STANDING FEET SHOULDER-WIDTH APART. THEN RAISE YOUR ARM BEHIND YOU AT SHOULDER LEVEL WITH PALM ON THE WALL. AND THUMB FACING FOR 30 SECONDS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            Image:
+                source:r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Video 2025-02-07 at 9.53.06 PM.gif"
+                size_hint_y: None
+                height: "400dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "LOWER BODY STRETCHES (3-5 MINUTES)"
+                font_style: "H5"
+                bold: True
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "1. HIP FLEXOR STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "LOWER YOUR BODY DOWN INTO A LUNGE POSITION. KEEPING YOUR BACK KNEE ALMOST TOUCHING THE GROUND. HOLD FOR 30 SECONDS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Video 2025-02-07 at 9.53.05 PM (1).gif"
+                size_hint_y: None
+                height: "400dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "2. QUAD STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "STAND WITH ONE HAND AGAINST A WALL FOR BALANCE AND LIFT ONE LEG BEHIND YOU.KEEPING YOUR KNEE STRAIGHT. HOLD FOR 30 SECONDS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Video 2025-02-07 at 9.53.07 PM.gif"
+                size_hint_y: None
+                height: "400dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "3.CALF STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "STAND FACING A WALL WITH ONE HAND ON THE BACK ABOUT A FOOT AND A HALF. KEEPING YOUR HEEL ON THE GROUND. BEND YOUR FRONT KNEE AND LEAN FORWARD. STRETCHING YOUR CALF MUSCLE. HOLD FOR 30 SECONDS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Video 2025-02-07 at 9.53.04 PM (1).gif"
+                size_hint_y: None
+                height: "400dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "4. HAMSTRING STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "SIT ON THE FLOOR WITH YOUR LEGS STRAIGHT OUT IN FRONT OF YOU. LEAN FORWARD. REACHING FOR YOUR TOES. AND HOLD FOR 30 SECONDS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Video 2025-02-07 at 9.38.38 PM.gif"
+                size_hint_y: None
+                height: "400dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "CORE STRETCHES (3-5 MINUTES)"
+                font_style: "H5"
+                bold: True
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "1. KNEE TO CHEST STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "LIE ON YOUR BACK AND BRING ONE KNEE TOWARDS YOUR CHEST. HOLD FOR 30 SECONDS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Image 2025-02-07 at 9.53.03 PM.jpeg"
+                size_hint_y: None
+                height: "400dp"
+                allow_stretch: True
+
+            MDLabel:
+                text: "2.CAT-COW STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "START ON YOUR HANDS AND KNEES. ARCH YOUR BACK, LIFTING YOUR TAILBONE AND HEAD TOWARDS THE CEILING. THEN, ROUND YOUR BACK, TUCKING YOUR CHIN TOWARDS YOUR CHEST AND YOUR TAILBONE TOWARDS THE GROUND.REPEAT FOR 30 SECONDS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "100dp"
+                halign: "center"
+                bold: True 
+
+            Image:
+                source: r"c:\\Users\\HP\\Desktop\\sct gym\\WhatsApp Video 2025-02-07 at 9.53.06 PM (1).gif"
+                size_hint_y: None
+                height: "400dp"
+                allow_stretch: True
+
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint: {"x": 0, "top": 1}
+        on_release: app.switch_screen("main")
+
+<PainReliefScreen>:
+    name: "pain_relief"
+
+    MDScrollView:
+        MDBoxLayout:
+            orientation: "vertical"
+            size_hint_y: None
+            height: self.minimum_height
+            padding: 20
+            spacing: 10
+
+            MDLabel:
+                text: "PAIN RELIEF STRETCHES"
+                font_style: "H5"
+                bold: True
+                halign: "center"
+                size_hint_y: None
+                height: "50dp"
+                md_bg_color: 1, 0, 0, 1
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+
+
+            MDLabel:
+                text: "NECK AND SHOULDER STRETCHES"
+                font_style: "H5"
+                bold: True
+                halign: "center"
+                size_hint_y: None
+                height: "50dp"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "1. CHIN TUCKS:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "STAND OR SIT WITH GOOD POSTURE AND LOOK STRAIGHT AHEAD. TUCK YOUR CHIN IN TOWARDS YOUR CHEST, THEN RELEASE. REPEAT 10-15 TIMES."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            MDLabel:
+                text: "2.SHOULDER ROLLS:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "ROLL YOUR SHOULDERS FORWARD AND BACKWARD IN A CIRCULAR MOTION. REPEAT 10-15 TIMES"
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            MDLabel:
+                text: "3.EAR TO SHOULDER:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "GENTLY BRING YOUR EAR TOWARDS YOUR SHOULDER, KEEPING YOUR HEAD STRAIGHT. HOLD FOR 30 SECONDS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            MDLabel:
+                text: "BACK AND HIP STRETCHES"
+                font_style: "H5"
+                bold: True
+                halign: "center"
+                size_hint_y: None
+                height: "50dp"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "1.KNEE TO CHEST STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "LIE ON YOUR BACK AND BRING ONE KNEE TOWARDS YOUR CHEST. HOLD FOR 30 SECONDS AND REPEAT ON THE OTHER SIDE."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            MDLabel:
+                text: "2.CAT-COW STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "80dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "START ON YOUR HANDS AND KNEES. ARCH YOUR BACK, LIFTING YOUR TAILBONE AND HEAD TOWARDS THE CEILING. THEN, ROUND YOUR BACK, TUCKING YOUR CHIN TOWARDS YOUR CHEST AND YOUR TAILBONE TOWARDS THE GROUND REPEAT FOR 30 SECONDS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            MDLabel:
+                text: "3.PIRIFORMIS STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "80dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "SIT ON THE FLOOR WITH YOUR AFFECTED LEG CROSSED OVER YOUR OTHER LEG. PLACE YOUR HAND ON THE KNEE OF THE CROSSED LEG AND PULL IT TOWARD YOUR OPPOSITE SHOULDER. HOLD FOR 30 SECONDS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            MDLabel:
+                text: "LEG AND FOOT STRETCHES"
+                font_style: "H5"
+                bold: True
+                halign: "center"
+                size_hint_y: None
+                height: "80dp"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+            
+            MDLabel:
+                text: "1.QUAD STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "STAND WITH ONE HAND AGAINST A WALL FOR BALANCE AND LIFT ONE LEG BEHIND YOU, KEEPING YOUR KNEE STRAIGHT. HOLD FOR 30 SECONDS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            MDLabel:
+                text: "2.CALF STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "100dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "STAND FACING A WALL WITH ONE HAND ON THE WALL FOR BALANCE. STEP ONE FOOT BACK ABOUT A FOOT AND A HALF, KEEPING YOUR HEEL ON THE GROUND. BEND YOUR FRONT KNEE AND LEAN FORWARD, STRETCHING YOUR CALF MUSCLE.HOLD FOR 30 SECONDS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            MDLabel:
+                text: "3.TOE STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "80dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "SIT ON THE FLOOR WITH YOUR LEGS STRAIGHT OUT IN FRONT OF YOU. LOOP A TOWEL AROUND THE BALL OF YOUR FOOT AND GENTLY PULL YOUR TOES BACK TOWARDS YOUR SHIN. HOLD FOR 30 SECONDS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint: {"x": 0, "top": 1}
+        on_release: app.switch_screen("main")    
+
+<OtherScreen>:
+    name: "others"
+
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint: {"x": 0, "top": 1}
+        on_release: app.switch_screen("main")
+
+    MDScrollView:
+        MDBoxLayout:
+            orientation: "vertical"
+            size_hint_y: None
+            height: self.minimum_height
+            padding: 20
+            spacing: 10
+
+            MDLabel:
+                text: "OTHERS"
+                font_style: "H5"
+                bold: True
+                halign: "center"
+                size_hint_y: None
+                height: "50dp"
+                md_bg_color: 1, 0, 0, 1
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1   
+
+            MDLabel:
+                text: "AFTER THE GYM"
+                font_style: "H5"
+                bold: True
+                halign: "center"
+                size_hint_y: None
+                height: "50dp"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "1.COOL DOWN AND STRETCH:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "FINISH YOUR WORKOUT WITH STATIC STRETCHES TO IMPROVE FLEXIBILITY AND REDUCE MUSCLE SORENESS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            MDLabel:
+                text: "2.REFUEL AND HYDRATE:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "CONSUME A BALANCED MEAL OR SNACK WITH PROTEIN AND COMPLEX CARBOHYDRATES WITHIN 30-60 MINUTES AFTER YOUR WORKOUT."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            MDLabel:
+                text: "3.GET ENOUGH SLEEP:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "AIM FOR 7-9 HOURS OF SLEEP TO AID IN MUSCLE RECOVERY AND GROWTH."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            MDLabel:
+                text: "FOODS TO FOCUS ON"
+                font_style: "H5"
+                bold: True
+                halign: "center"
+                size_hint_y: None
+                height: "50dp"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "1.LEAN PROTEINS:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "FOCUS ON LEAN PROTEINS LIKE CHICKEN, FISH, TURKEY, AND EGGS"
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            MDLabel:
+                text: "2.COMPLEX CARBS:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "INCLUDE COMPLEX CARBS LIKE BROWN RICE, WHOLE WHEAT BREAD, AND OATMEAL IN YOUR DIET."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            MDLabel:
+                text: "3.HEALTHY FATS:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "NUTS, SEEDS, AVOCADO, AND OLIVE OIL ARE ALL GREAT SOURCE OF HEALTHY FATS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            MDLabel:
+                text: "4. FRUITS AND VEGITABLES:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "AIM FOR 5-7 SERVINGS OF FRUITS AND VEGITABLES PER DAY."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            MDLabel:
+                text: "FOODS TO AVOID"
+                font_style: "H5"
+                bold: True
+                halign: "center"
+                size_hint_y: None
+                height: "50dp"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "1.PROCESSED MEATS:"
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "LIMIT YOUR INTAKE OF PROCESSED MEATS LIKE HOT DOGS, SAUSAGES AND BACON."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+                
+            MDLabel:
+                text: "2. SUGARY DRINKS: "
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "AVOID SUGARY DRINKS LIKE SODA, SPORTS DRINKS, AND ENERGY DRINKS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+                
+            MDLabel:
+                text: "3.FRIED FOODS: "
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "LIMIT YOUR INTAKE OF FRIED FOODS LIKE FRENCH FRIES , FRIED CHICKEN, AND DOUGHNUTS."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+            MDLabel:
+                text: "4.HIGH-SUGAR FOODS: "
+                font_style: "H6"
+                halign: "left"
+                size_hint_y: None
+                height: "50dp"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+
+            MDLabel:
+                text: "AVOID FOODS HIGH IN ADDED SUGARS LIKE CANDY, CAKES AND PASTRIES."
+                font_style: "H6"
+                size_hint_y: None
+                height: "50dp"
+                halign: "center"
+                bold: True 
+
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint: {"x": 0, "top": 1}
+        on_release: app.switch_screen("main")          
+
+'''
+
+class GymGuideApp(MDApp):
+    def build(self):
+        self.theme_cls.primary_palette = "Red"
+        return Builder.load_string(KV)
+
+    def switch_screen(self, screen_name):
+        self.root.current = screen_name  # Change screen
+
+GymGuideApp().run()
